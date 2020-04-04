@@ -8,7 +8,7 @@ find_package(Boost COMPONENTS system filesystem REQUIRED)
 
 set(CMAKE_CXX_STANDARD 14)
 set(HEADERS include/read.h include/display.h)
-set(SOURCES src/main.cpp)
+set(SOURCES src/main.cpp include/filter.h include/line.h include/roi.h)
 
 include_directories(include)
 add_executable(${THIS} ${HEADERS} ${SOURCES})
