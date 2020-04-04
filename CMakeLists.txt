@@ -7,10 +7,11 @@ find_package( OpenCV REQUIRED )
 find_package(Boost COMPONENTS system filesystem REQUIRED)
 
 set(CMAKE_CXX_STANDARD 14)
-set(SOURCES src/main.cpp include/read.h)
+set(HEADERS include/read.h include/display.h)
+set(SOURCES src/main.cpp)
 
 include_directories(include)
-add_executable(${THIS} ${SOURCES})
+add_executable(${THIS} ${HEADERS} ${SOURCES})
 
 target_link_libraries( ${THIS} ${OpenCV_LIBS})
 target_link_libraries( ${THIS} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
