@@ -25,12 +25,7 @@ Line get_median_line(const std::vector<Line>& lines)
     const auto median_slope = _median(slopes);
     const auto median_bias = _median(biases);
 
-    // return the line with the median slope and bias
-    int x1 = 0;
-    int y1 = static_cast<int>(median_bias);
-    int x2 = - static_cast<int>(median_bias/median_slope);
-    int y2 = 0;
-    return Line{x1, y1, x2, y2};
+    return Line{median_slope, median_bias};
 }
 
 #endif //SELF_01_LANE_FINDING_BASIC_CPP_MEDIAN_H

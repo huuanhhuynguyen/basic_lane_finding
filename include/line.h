@@ -25,7 +25,7 @@ struct Line {
     {
         x1 = 0;
         y1 = static_cast<int>(slope * x1 + bias);
-        x2 = 10;
+        x2 = 1000;
         y2 = static_cast<int>(slope * x2 + bias);
     }
 private:
