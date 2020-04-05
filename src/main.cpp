@@ -67,5 +67,3 @@ int main() {
     return 0;
 }
 
-//TODO upload to github and add README.md
-
