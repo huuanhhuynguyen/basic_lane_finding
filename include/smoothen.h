@@ -4,12 +4,13 @@
 #include <deque>
 #include <numeric>
 #include "line.h"
+#include "median.h"
 
 template <typename T>
 class MovAvg
 {
 public:
-    explicit MovAvg(unsigned int _window = 3) : kWindow{_window} {}
+    explicit MovAvg(unsigned int _window = 5) : kWindow{_window} {}
 
     /// return the moving average value
     T update(T&& number) const noexcept {
@@ -31,7 +32,7 @@ private:
 class LineMovAvg
 {
 public:
-    explicit LineMovAvg(unsigned int _window = 3) :
+    explicit LineMovAvg(unsigned int _window = 5) :
         kWindow{_window}, slope_mov_avg{_window}, bias_mov_avg{_window}
     {}
 
