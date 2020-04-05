@@ -4,13 +4,14 @@
 #include "display.h"
 #include "roi.h"
 #include "filter.h"
+#include "median.h"
 
 int main() {
     // read images from the given path and return a list
     auto images = read_images(std::string("../data/test_images"));
 
     // for every image in images
-    for (const auto& image : images)
+    for (auto& image : images)
     {
         // apply Gaussian Blur on image
         cv::Mat blur_image;
@@ -25,20 +26,27 @@ int main() {
 
         // apply Hough line detection
         std::vector<cv::Vec2f> hough_lines;
-        cv::HoughLines(roi_image, hough_lines, 2, CV_PI/180, 1, 0, 0 );
+        cv::HoughLines(roi_image, hough_lines, 1, CV_PI / 180,30);
 
         // transform hough lines into cartesian lines
-        auto candidate_lines = cartesian_lines_from_hough_lines(hough_lines);
+        const auto candidate_lines = cartesian_lines_from_hough_lines(hough_lines);
 
         // filter out candidate (cartesian) lines and get final detected lines
-        auto final_lines = filter_slope(candidate_lines);
+        const auto final_lines = filter_slope(candidate_lines);
+
+        // get median lines
+        const auto pos_lines = get_lines_with_positive_slope(final_lines);
+        const auto neg_lines = get_lines_with_negative_slope(final_lines);
+        const auto right = get_median_line(pos_lines);
+        const auto left = get_median_line(neg_lines);
 
         // draw the final lines
-        auto visualized_image = image;
-        draw_lines_on_image(visualized_image, final_lines);
+        draw_lines_on_image(image, {left, right});
+
+        // time-smoothening
 
         // display the image with the final lines
-        display(visualized_image);
+        display(image);
 
         // save the visualized image in the output path
 

@@ -42,13 +42,44 @@ std::vector<Line> cartesian_lines_from_hough_lines(const std::vector<cv::Vec2f>&
     return result;
 }
 
+/// Adjust two points of the line so that they two are visible in the display window
+void _adjust_line_visible(Line& line, int img_h, int img_w)
+{
+    const auto slope = line.slope() + 0.00001;  // prevents division by 0
+    const auto bias = line.bias();
+    cv::Point pt_in_1, pt_in_2;  // points on the line that should be visible
+    {
+        int x = 0;
+        int y = static_cast<int>(slope * x + bias);
+        if (y < 0)
+        {
+            x = img_w;
+            y = static_cast<int>(slope * x + bias);
+        }
+        pt_in_1 = cv::Point{x, y};
+    }
+    {
+        int y = 0;
+        int x = static_cast<int>((y - bias) / slope);
+        if (x < 0)
+        {
+            y = img_h;
+            x = static_cast<int>((y - bias) / slope);
+        }
+        pt_in_2 = cv::Point{x, y};
+    }
+
+    line = Line{pt_in_1.x, pt_in_1.y, pt_in_2.x, pt_in_2.y};
+}
+
 void draw_lines_on_image(cv::Mat& dst, const std::vector<Line>& lines)
 {
-    for (const auto& line : lines)
+    for (auto line : lines)
     {
+        _adjust_line_visible(line, dst.rows, dst.cols);
         cv::Point pt1 {line.x1, line.y1};
         cv::Point pt2 {line.x2, line.y2};
-        cv::line(dst, pt1, pt2, cv::Scalar(0,0,255), 3, cv::LINE_AA);
+        cv::line(dst, pt1, pt2,cv::Scalar(0,255,0), 5, cv::LINE_AA);
     }
 }
 
