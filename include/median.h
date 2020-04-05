@@ -8,6 +8,11 @@ template <typename T,
           template <typename ELEM, typename = std::allocator<ELEM>> class CONTAINER>
 T median(CONTAINER<T> nums)
 {
+    if(nums.empty())
+    {
+        std::cerr << "nums is empty in the function median." << std::endl;
+    }
+
     std::sort(nums.begin(), nums.end());
     int mid{nums.size()/2};
     return nums[mid];
