@@ -5,6 +5,7 @@
 #include "roi.h"
 #include "filter.h"
 #include "median.h"
+#include "smoothen.h"
 
 int main() {
     // read images/videos from the given path and return a list
@@ -38,13 +39,16 @@ int main() {
         // get median lines
         const auto pos_lines = get_lines_with_positive_slope(final_lines);
         const auto neg_lines = get_lines_with_negative_slope(final_lines);
-        const auto right = get_median_line(pos_lines);
-        const auto left = get_median_line(neg_lines);
+        auto right = get_median_line(pos_lines);
+        auto left = get_median_line(neg_lines);
+
+        // time-smoothening
+        LineMovAvg right_mov_avg, left_mov_avg;
+        right = right_mov_avg.update(right);
+        left = left_mov_avg.update(left);
 
         // draw the final lines
         draw_lines_on_image(image, {left, right});
-
-        // time-smoothening
 
         // display the image with the final lines
         display(image);
