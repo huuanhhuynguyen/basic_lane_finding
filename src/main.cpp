@@ -6,11 +6,13 @@
 #include "filter.h"
 #include "median.h"
 #include "smoothen.h"
+#include "save.h"
 
 int main() {
-    // read images/videos from the given path and return a list
+    // read images/videos from the given path and return an image list
+    std::string filepath = "../data/test_videos/cornering2.mp4";
     //auto images = read_images(std::string("../data/test_images"));
-    auto images = read_video_frames(std::string("../data/test_videos/solidWhiteRight.mp4"));
+    auto images = read_video_frames(filepath);
 
     // for every image in images
     for (auto& image : images)
@@ -47,14 +49,16 @@ int main() {
         right = right_mov_avg.update(right);
         left = left_mov_avg.update(left);
 
-        // draw the final lines
+        // draw the final detection lines
         draw_lines_on_image(image, {left, right});
 
-        // display the image with the final lines
+        // display the image with the final detection lines
         display(image);
-
-        // save the visualized image in the output path
-
     }
+
+    // save the video
+    //const cv::VideoCapture input_video(filepath);
+    //save_video(images, input_video);
+
     return 0;
 }
