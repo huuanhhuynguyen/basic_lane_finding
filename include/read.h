@@ -35,5 +35,4 @@ std::vector<cv::Mat> read_images(const std::string& directory)
     return images;
 }
 
-
 #endif //SELF_01_LANE_FINDING_BASIC_CPP_READ_H

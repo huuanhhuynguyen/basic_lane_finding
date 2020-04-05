@@ -5,11 +5,11 @@
 #include "line.h"
 
 template <typename T>
-T _median(std::vector<T> arr)
+T _median(std::vector<T> nums)
 {
-    std::sort(arr.begin(), arr.end());
-    int mid{arr.size()/2};
-    return arr[mid];
+    std::sort(nums.begin(), nums.end());
+    int mid{nums.size()/2};
+    return nums[mid];
 }
 
 Line get_median_line(const std::vector<Line>& lines)
