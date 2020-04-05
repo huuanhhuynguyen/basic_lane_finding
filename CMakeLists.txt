@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.10)
 
-set(THIS self_01_lane_finding_basic_cpp)
+set(THIS basic_lane_finding_cpp)
 project(${THIS})
 
 find_package( OpenCV REQUIRED )
