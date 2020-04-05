@@ -5,6 +5,7 @@
 #include <vector>
 #include <opencv2/core/matx.hpp>
 #include <opencv2/core/types.hpp>
+#include "roi.h"
 
 /// This class calculates slope and bias of a line, given two separate points
 struct Line {
@@ -83,13 +84,18 @@ void _adjust_line_visible(Line& line, int img_h, int img_w)
 
 void draw_lines_on_image(cv::Mat& dst, const std::vector<Line>& lines)
 {
+    auto image_with_line = dst.clone();
     for (auto line : lines)
     {
         _adjust_line_visible(line, dst.rows, dst.cols);
         cv::Point pt1 {line.x1, line.y1};
         cv::Point pt2 {line.x2, line.y2};
-        cv::line(dst, pt1, pt2,cv::Scalar(0,255,0), 5, cv::LINE_AA);
+        cv::line(image_with_line, pt1, pt2,cv::Scalar(255, 0, 0), 5, cv::LINE_AA);
     }
+
+    // blend image
+    image_with_line = mask_roi(image_with_line);
+    cv::addWeighted(image_with_line, 0.7, dst, 0.3, 0.0, dst);
 }
 
 #endif //SELF_01_LANE_FINDING_BASIC_CPP_LINE_H
