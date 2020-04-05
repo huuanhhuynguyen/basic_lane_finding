@@ -10,10 +10,11 @@
 
 int main() {
     // read images/videos from the given path and return an image list
-    std::string filepath = "../data/test_videos/cornering2.mp4";
+    std::string filepath = "../data/test_videos/straight.mp4";
     //auto images = read_images(std::string("../data/test_images"));
     auto images = read_video_frames(filepath);
 
+    LineMovAvg right_mov_avg, left_mov_avg;
     // for every image in images
     for (auto& image : images)
     {
@@ -41,24 +42,30 @@ int main() {
         // get median lines
         const auto pos_lines = get_lines_with_positive_slope(final_lines);
         const auto neg_lines = get_lines_with_negative_slope(final_lines);
-        auto right = get_median_line(pos_lines);
-        auto left = get_median_line(neg_lines);
 
-        // time-smoothening
-        LineMovAvg right_mov_avg, left_mov_avg;
-        right = right_mov_avg.update(right);
-        left = left_mov_avg.update(left);
+        if(!pos_lines.empty() && !neg_lines.empty())
+        {
+            auto right = get_median_line(pos_lines);
+            auto left = get_median_line(neg_lines);
 
-        // draw the final detection lines
-        draw_lines_on_image(image, {left, right});
+            // time-smoothening
+            right = right_mov_avg.update(right);
+            left = left_mov_avg.update(left);
+
+            // draw the final detection lines
+            draw_lines_on_image(image, {left, right});
+        }
 
         // display the image with the final detection lines
         display(image);
     }
 
     // save the video
-    //const cv::VideoCapture input_video(filepath);
-    //save_video(images, input_video);
+    const cv::VideoCapture input_video(filepath);
+    save_video(images, input_video);
 
     return 0;
 }
+
+//TODO upload to github and add README.md
+
