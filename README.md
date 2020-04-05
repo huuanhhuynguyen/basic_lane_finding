@@ -4,12 +4,12 @@ This project is just a self-learning experience by implementing in C++14 an algo
 
 Demo on straight road [videoclip](https://www.youtube.com/watch?v=mbqWboRy95Q):
 
-<a href="https://www.youtube.com/watch?v=mbqWboRy95Q" target="_blank"><img src="http://img.youtube.com/vi/KlQ-8iD1EFM/0.jpg" 
+<a href="https://www.youtube.com/watch?v=mbqWboRy95Q" target="_blank"><img src="https://img.youtube.com/vi/mbqWboRy95Q/0.jpg" 
 alt="circuit" width="240" height="180" border="10" /></a>
 
 Demo on cornering road [videoclip](https://www.youtube.com/watch?v=qCyg2w0ElU4):
 
-<a href="https://www.youtube.com/watch?v=qCyg2w0ElU4" target="_blank"><img src="http://img.youtube.com/vi/KlQ-8iD1EFM/0.jpg" 
+<a href="https://www.youtube.com/watch?v=qCyg2w0ElU4" target="_blank"><img src="https://img.youtube.com/vi/qCyg2w0ElU4/0.jpg" 
 alt="circuit" width="240" height="180" border="10" /></a>
 
 ## Basic Build Instructions
