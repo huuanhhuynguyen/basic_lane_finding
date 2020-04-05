@@ -7,8 +7,9 @@
 #include "median.h"
 
 int main() {
-    // read images from the given path and return a list
-    auto images = read_images(std::string("../data/test_images"));
+    // read images/videos from the given path and return a list
+    //auto images = read_images(std::string("../data/test_images"));
+    auto images = read_video_frames(std::string("../data/test_videos/solidWhiteRight.mp4"));
 
     // for every image in images
     for (auto& image : images)

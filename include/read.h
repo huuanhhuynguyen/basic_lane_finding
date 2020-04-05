@@ -1,6 +1,7 @@
 #ifndef SELF_01_LANE_FINDING_BASIC_CPP_READ_H
 #define SELF_01_LANE_FINDING_BASIC_CPP_READ_H
 
+#include <iostream>
 #include <vector>
 #include <opencv2/core/mat.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -33,6 +34,34 @@ std::vector<cv::Mat> read_images(const std::string& directory)
     std::transform(filenames.begin(), filenames.end(), std::back_inserter(images), img_read);
 
     return images;
+}
+
+std::vector<cv::Mat> read_video_frames(const std::string& path)
+{
+    cv::VideoCapture capture(path);
+
+    // Check if camera opened successfully
+    if(!capture.isOpened()){
+        std::cout << "Error opening video stream or file" << std::endl;
+        return {};
+    }
+
+    // Read each video frame and save in a list
+    std::vector<cv::Mat> frames;
+    while (true)
+    {
+        cv::Mat frame;
+        capture.read(frame);
+        if (frame.empty())
+        {
+            break;
+        }
+
+        frames.push_back(frame);
+    }
+
+    capture.release();  // release capture object
+    return frames;
 }
 
 #endif //SELF_01_LANE_FINDING_BASIC_CPP_READ_H
