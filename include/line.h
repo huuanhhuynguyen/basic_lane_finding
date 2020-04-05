@@ -9,8 +9,12 @@
 /// This class calculates slope and bias of a line, given two separate points
 struct Line {
     int x1, y1, x2, y2;
-    float slope() const noexcept { return float(y2 - y1) / (float(x2 - x1) + _EPS); }
-    float bias()  const noexcept { return float(y1) - slope() + float(x1); }
+
+    constexpr float slope() const noexcept {
+        return static_cast<float>(y2 - y1) / (static_cast<float>(x2 - x1) + _EPS);
+    }
+
+    constexpr float bias()  const noexcept { return static_cast<float>(y1) - slope()*static_cast<float>(x1); }
 
     explicit Line(int _x1, int _y1, int _x2, int _y2) :
             x1{_x1}, y1{_y1}, x2{_x2}, y2{_y2}
