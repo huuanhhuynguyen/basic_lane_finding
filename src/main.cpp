@@ -10,7 +10,7 @@
 
 int main() {
     // read images/videos from the given path and return an image list
-    std::string filepath = "../data/test_videos/straight.mp4";
+    std::string filepath = "../data/test_videos/corner.mp4";
     //auto images = read_images(std::string("../data/test_images"));
     auto images = read_video_frames(filepath);
 
@@ -60,9 +60,9 @@ int main() {
         display(image);
     }
 
-    // save the video
-    const cv::VideoCapture input_video(filepath);
-    save_video(images, input_video);
+    // uncomment the following save the video
+    //const cv::VideoCapture input_video(filepath);
+    //save_video(images, input_video);
 
     return 0;
 }
