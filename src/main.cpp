@@ -39,12 +39,13 @@ int main() {
         // filter out candidate (cartesian) lines and get final detected lines
         const auto final_lines = filter_slope(candidate_lines);
 
-        // get median lines
+        // split the detection lines into two, depending on the sign of the slope
         const auto pos_lines = get_lines_with_positive_slope(final_lines);
         const auto neg_lines = get_lines_with_negative_slope(final_lines);
 
         if(!pos_lines.empty() && !neg_lines.empty())
         {
+            // get the median line to remove outliers
             auto right = get_median_line(pos_lines);
             auto left = get_median_line(neg_lines);
 
