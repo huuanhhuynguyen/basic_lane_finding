@@ -1,5 +1,5 @@
-#ifndef SELF_01_LANE_FINDING_BASIC_CPP_LINE_H
-#define SELF_01_LANE_FINDING_BASIC_CPP_LINE_H
+#ifndef LANE_FINDING_BASIC_CPP_LINE_H
+#define LANE_FINDING_BASIC_CPP_LINE_H
 
 #include <utility>
 #include <vector>
@@ -106,4 +106,4 @@ void draw_lines_on_image(cv::Mat& dst, const std::vector<Line>& lines)
     cv::addWeighted(image_with_line, 0.7, dst, 0.3, 0.0, dst);
 }
 
-#endif //SELF_01_LANE_FINDING_BASIC_CPP_LINE_H
+#endif //LANE_FINDING_BASIC_CPP_LINE_H

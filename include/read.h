@@ -1,5 +1,5 @@
-#ifndef SELF_01_LANE_FINDING_BASIC_CPP_READ_H
-#define SELF_01_LANE_FINDING_BASIC_CPP_READ_H
+#ifndef LANE_FINDING_BASIC_CPP_READ_H
+#define LANE_FINDING_BASIC_CPP_READ_H
 
 #include <iostream>
 #include <vector>
@@ -29,7 +29,6 @@ std::vector<cv::Mat> read_images(const std::string& directory)
     auto filenames = list_dir(directory);
 
     std::vector<cv::Mat> images;
-
     auto img_read = [](const auto& path){ return cv::imread(path); };
     std::transform(filenames.begin(), filenames.end(), std::back_inserter(images), img_read);
 
@@ -62,8 +61,7 @@ std::vector<cv::Mat> read_video_frames(const std::string& path)
         frames.push_back(frame);
     }
 
-    capture.release();  // release capture object
     return frames;
 }
 
-#endif //SELF_01_LANE_FINDING_BASIC_CPP_READ_H
+#endif //LANE_FINDING_BASIC_CPP_READ_H

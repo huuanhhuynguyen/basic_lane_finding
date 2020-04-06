@@ -1,5 +1,5 @@
-#ifndef SELF_01_LANE_FINDING_BASIC_CPP_SAVE_H
-#define SELF_01_LANE_FINDING_BASIC_CPP_SAVE_H
+#ifndef LANE_FINDING_BASIC_CPP_SAVE_H
+#define LANE_FINDING_BASIC_CPP_SAVE_H
 
 #include <opencv2/highgui/highgui.hpp>
 
@@ -22,7 +22,6 @@ void save_video(const std::vector<cv::Mat>& images, const cv::VideoCapture& inpu
     {
         output_video.write(image);
     }
-    output_video.release();
 }
 
-#endif //SELF_01_LANE_FINDING_BASIC_CPP_SAVE_H
+#endif //LANE_FINDING_BASIC_CPP_SAVE_H

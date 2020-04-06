@@ -1,5 +1,5 @@
-#ifndef SELF_01_LANE_FINDING_BASIC_CPP_SMOOTHEN_H
-#define SELF_01_LANE_FINDING_BASIC_CPP_SMOOTHEN_H
+#ifndef LANE_FINDING_BASIC_CPP_SMOOTHEN_H
+#define LANE_FINDING_BASIC_CPP_SMOOTHEN_H
 
 #include <deque>
 #include <numeric>
@@ -10,17 +10,17 @@ template <typename T>
 class MovAvg
 {
 public:
-    explicit MovAvg(unsigned int _window = 5) : kWindow{_window} {}
+    explicit constexpr MovAvg(unsigned int _window = 5) : kWindow{_window} {}
 
     /// return the moving average value
-    T update(T&& number) const noexcept {
+    T update(const T& number) const noexcept {
         if (prevs.size() >= kWindow)
         {
             prevs.pop_front();
         }
-        prevs.push_back(std::forward<T>(number));
-        auto sum = std::accumulate(prevs.begin(), prevs.end(), 0.0);
-        auto mean = sum / prevs.size();
+        prevs.push_back(number);
+        const auto sum = std::accumulate(prevs.begin(), prevs.end(), 0.0);
+        const auto mean = sum / prevs.size();
         return static_cast<T>(mean);
     }
 
@@ -32,14 +32,14 @@ private:
 class LineMovAvg
 {
 public:
-    explicit LineMovAvg(unsigned int _window = 5) :
+    explicit constexpr LineMovAvg(unsigned int _window = 5) :
         kWindow{_window}, slope_mov_avg{_window}, bias_mov_avg{_window}
     {}
 
     /// return the moving average line
     Line update(const Line& line) const noexcept {
-        auto slope = slope_mov_avg.update(line.slope());
-        auto bias = bias_mov_avg.update(line.bias());
+        const auto slope = slope_mov_avg.update(line.slope());
+        const auto bias = bias_mov_avg.update(line.bias());
         return Line{slope, bias};
     }
 
@@ -49,4 +49,4 @@ private:
     const unsigned int kWindow;
 };
 
-#endif //SELF_01_LANE_FINDING_BASIC_CPP_SMOOTHEN_H
+#endif //LANE_FINDING_BASIC_CPP_SMOOTHEN_H
