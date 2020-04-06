@@ -1,6 +1,7 @@
-#ifndef LANE_FINDING_BASIC_CPP_SAVE_H
-#define LANE_FINDING_BASIC_CPP_SAVE_H
+#ifndef BASIC_LANE_FINDING_CPP_SAVE_H
+#define BASIC_LANE_FINDING_CPP_SAVE_H
 
+#include <iostream>
 #include <opencv2/highgui/highgui.hpp>
 
 /// save a video from "images" data, using the "input_video" properties
@@ -24,4 +25,4 @@ void save_video(const std::vector<cv::Mat>& images, const cv::VideoCapture& inpu
     }
 }
 
-#endif //LANE_FINDING_BASIC_CPP_SAVE_H
+#endif //BASIC_LANE_FINDING_CPP_SAVE_H

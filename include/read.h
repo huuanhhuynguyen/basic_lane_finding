@@ -1,9 +1,8 @@
-#ifndef LANE_FINDING_BASIC_CPP_READ_H
-#define LANE_FINDING_BASIC_CPP_READ_H
+#ifndef BASIC_LANE_FINDING_CPP_READ_H
+#define BASIC_LANE_FINDING_CPP_READ_H
 
 #include <iostream>
 #include <vector>
-#include <opencv2/core/mat.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <boost/filesystem.hpp>
 
@@ -64,4 +63,4 @@ std::vector<cv::Mat> read_video_frames(const std::string& path)
     return frames;
 }
 
-#endif //LANE_FINDING_BASIC_CPP_READ_H
+#endif //BASIC_LANE_FINDING_CPP_READ_H

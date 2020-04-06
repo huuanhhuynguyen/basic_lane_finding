@@ -1,6 +1,7 @@
-#ifndef LANE_FINDING_BASIC_CPP_MEDIAN_H
-#define LANE_FINDING_BASIC_CPP_MEDIAN_H
+#ifndef BASIC_LANE_FINDING_CPP_MEDIAN_H
+#define BASIC_LANE_FINDING_CPP_MEDIAN_H
 
+#include <iostream>
 #include <vector>
 #include "line.h"
 
@@ -34,4 +35,4 @@ Line get_median_line(const std::vector<Line>& lines)
     return Line{median_slope, median_bias};
 }
 
-#endif //LANE_FINDING_BASIC_CPP_MEDIAN_H
+#endif //BASIC_LANE_FINDING_CPP_MEDIAN_H

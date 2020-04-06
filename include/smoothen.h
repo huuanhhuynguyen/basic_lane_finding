@@ -1,10 +1,9 @@
-#ifndef LANE_FINDING_BASIC_CPP_SMOOTHEN_H
-#define LANE_FINDING_BASIC_CPP_SMOOTHEN_H
+#ifndef BASIC_LANE_FINDING_CPP_SMOOTHEN_H
+#define BASIC_LANE_FINDING_CPP_SMOOTHEN_H
 
 #include <deque>
 #include <numeric>
 #include "line.h"
-#include "median.h"
 
 template <typename T>
 class MovAvg
@@ -49,4 +48,4 @@ private:
     const unsigned int kWindow;
 };
 
-#endif //LANE_FINDING_BASIC_CPP_SMOOTHEN_H
+#endif //BASIC_LANE_FINDING_CPP_SMOOTHEN_H

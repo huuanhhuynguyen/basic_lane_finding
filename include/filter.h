@@ -1,5 +1,5 @@
-#ifndef LANE_FINDING_BASIC_CPP_FILTER_H
-#define LANE_FINDING_BASIC_CPP_FILTER_H
+#ifndef BASIC_LANE_FINDING_CPP_FILTER_H
+#define BASIC_LANE_FINDING_CPP_FILTER_H
 
 #include "line.h"
 
@@ -49,4 +49,4 @@ std::vector<Line> get_lines_with_negative_slope(const std::vector<Line>& lines)
     return pos_lines;
 }
 
-#endif //LANE_FINDING_BASIC_CPP_FILTER_H
+#endif //BASIC_LANE_FINDING_CPP_FILTER_H

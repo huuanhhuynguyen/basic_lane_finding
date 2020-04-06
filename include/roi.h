@@ -1,5 +1,5 @@
-#ifndef LANE_FINDING_BASIC_CPP_ROI_H
-#define LANE_FINDING_BASIC_CPP_ROI_H
+#ifndef BASIC_LANE_FINDING_CPP_ROI_H
+#define BASIC_LANE_FINDING_CPP_ROI_H
 
 #include <opencv2/imgproc.hpp>
 
@@ -21,4 +21,4 @@ cv::Mat mask_roi(const cv::Mat& src)
     return result;
 }
 
-#endif //LANE_FINDING_BASIC_CPP_ROI_H
+#endif //BASIC_LANE_FINDING_CPP_ROI_H
