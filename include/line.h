@@ -17,7 +17,7 @@ struct Line {
 
     constexpr float bias()  const noexcept { return static_cast<float>(y1) - slope()*static_cast<float>(x1); }
 
-    explicit Line(int _x1, int _y1, int _x2, int _y2) :
+    explicit constexpr Line(int _x1, int _y1, int _x2, int _y2) :
             x1{_x1}, y1{_y1}, x2{_x2}, y2{_y2}
     {}
 

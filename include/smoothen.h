@@ -13,7 +13,7 @@ public:
     explicit constexpr MovAvg(unsigned int _window = 5) : kWindow{_window} {}
 
     /// return the moving average value
-    T update(const T& number) const noexcept {
+    constexpr T update(const T& number) const noexcept {
         if (prevs.size() >= kWindow)
         {
             prevs.pop_front();
