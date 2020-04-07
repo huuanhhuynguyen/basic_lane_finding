@@ -15,12 +15,12 @@
 template <typename T>
 class MovAvg {
 public:
-    explicit constexpr MovAvg(unsigned int window = 5) : _kWindow{window} {}
+    explicit constexpr MovAvg(unsigned int window = 5) : _window{window} {}
 
     /// update history and return the moving-averaged value
     constexpr T update(const T& number) const noexcept
     {
-        if (_prevs.size() >= _kWindow)
+        if (_prevs.size() >= _window)
         {
             _prevs.pop_front();
         }
@@ -32,7 +32,7 @@ public:
 
 private:
     mutable std::deque<T> _prevs;
-    const unsigned int _kWindow;
+    const unsigned int _window;
 };
 
 /// Calculates moving-averaged line (i.e. moving averaged slope and bias).
@@ -45,20 +45,20 @@ private:
 class LineMovAvg {
 public:
     explicit constexpr LineMovAvg(unsigned int window = 5) :
-        _kWindow{window}, _slope_mov_avg{window}, _bias_mov_avg{window} {}
+        _window{window}, _slope_mov_avg{window}, _bias_mov_avg{window} {}
 
     /// update history and return the moving-averaged line
     Line update(const Line& line) const noexcept
     {
         const auto slope = _slope_mov_avg.update(line.slope());
         const auto bias = _bias_mov_avg.update(line.bias());
-        return Line{slope, bias};
+        return Line(slope, bias);
     }
 
 private:
     MovAvg<float> _slope_mov_avg;
     MovAvg<float> _bias_mov_avg;
-    const unsigned int _kWindow;
+    const unsigned int _window;
 };
 
 #endif //BASIC_LANE_FINDING_CPP_SMOOTHEN_H

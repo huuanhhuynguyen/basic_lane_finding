@@ -13,8 +13,7 @@ std::vector<Line> filter_slope(const std::vector<Line>& candidate_lines)
     for (const auto& line: candidate_lines)
     {
         const auto abs_slope = abs(line.slope());
-        if(0.5 < abs_slope && abs_slope < 2.0)
-        {
+        if(0.5 < abs_slope && abs_slope < 2.0) {
             lines.push_back(line);
         }
     }

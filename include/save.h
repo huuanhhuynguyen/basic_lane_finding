@@ -12,8 +12,8 @@ void save_video(const std::vector<cv::Mat>& images, const cv::VideoCapture& inpu
     const auto fps = input_video.get(cv::CAP_PROP_FPS);
 
     cv::VideoWriter output_video;
-    output_video.open("out.mp4" , /* fourcc= */ -1, fps,
-                      cv::Size(width, height), /* isColor= */ true);
+    output_video.open("out.mp4" , /*fourcc=*/-1, fps,
+                      cv::Size(width, height), /*isColor=*/true);
 
     if (!output_video.isOpened()) {
         std::cerr << "Cannot open the video" << std::endl;

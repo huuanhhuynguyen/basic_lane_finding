@@ -37,7 +37,7 @@ Line from_hough_line(const cv::Vec2f& line)
     float a = cos(theta), b = sin(theta);
     float x0 = a * rho, y0 = b * rho;
 
-    const int kBigNum = 1000;
+    constexpr int kBigNum = 1000;
     int x1 = cvRound(x0 + kBigNum*(-b));
     int y1 = cvRound(y0 + kBigNum*(a));
     int x2 = cvRound(x0 - kBigNum*(-b));
