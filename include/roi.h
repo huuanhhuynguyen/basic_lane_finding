@@ -5,8 +5,8 @@
 
 cv::Mat mask_roi(const cv::Mat& src)
 {
-    auto img_h = src.rows;
-    auto img_w = src.cols;
+    const auto img_h = src.rows;
+    const auto img_w = src.cols;
 
     // ROI: x0, y0, width, height
     cv::Rect ROI{0, int(img_h * 0.6), img_w, int(img_h * 0.4)};

@@ -42,7 +42,7 @@ std::vector<cv::Mat> read_video_frames(const std::string& path)
     cv::VideoCapture capture(path);
 
     // Check if camera opened successfully
-    if(!capture.isOpened()){
+    if (!capture.isOpened()) {
         std::cout << "Error opening video stream or file" << std::endl;
         return {};
     }
@@ -53,8 +53,7 @@ std::vector<cv::Mat> read_video_frames(const std::string& path)
     {
         cv::Mat frame;
         capture.read(frame);
-        if (frame.empty())
-        {
+        if (frame.empty()) {
             break;
         }
 

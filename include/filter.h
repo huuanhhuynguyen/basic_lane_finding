@@ -5,8 +5,7 @@
 
 std::vector<Line> filter_slope(const std::vector<Line>& candidate_lines)
 {
-    if (candidate_lines.empty())
-    {
+    if (candidate_lines.empty()) {
         return candidate_lines;
     }
 
@@ -25,27 +24,27 @@ std::vector<Line> filter_slope(const std::vector<Line>& candidate_lines)
 
 std::vector<Line> get_lines_with_positive_slope(const std::vector<Line>& lines)
 {
-    if (lines.empty())
-    {
+    if (lines.empty()) {
         return {};
     }
 
     std::vector<Line> pos_lines;
     auto is_slope_pos = [](const auto& line) { return line.slope() > 0; };
     std::copy_if(lines.begin(), lines.end(), std::back_inserter(pos_lines), is_slope_pos);
+
     return pos_lines;
 }
 
 std::vector<Line> get_lines_with_negative_slope(const std::vector<Line>& lines)
 {
-    if (lines.empty())
-    {
+    if (lines.empty()) {
         return {};
     }
 
     std::vector<Line> pos_lines;
     auto is_slope_neg = [](const auto& line) { return line.slope() < 0; };
     std::copy_if(lines.begin(), lines.end(), std::back_inserter(pos_lines), is_slope_neg);
+
     return pos_lines;
 }
 

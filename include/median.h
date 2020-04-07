@@ -9,13 +9,12 @@ template <typename T,
           template <typename ELEM, typename = std::allocator<ELEM>> class CONTAINER>
 T median(CONTAINER<T> nums)
 {
-    if(nums.empty())
-    {
+    if (nums.empty()) {
         std::cerr << "nums is empty in the function median." << std::endl;
     }
 
     std::sort(nums.begin(), nums.end());
-    int mid{nums.size()/2};
+    int mid( nums.size()/2 );
     return nums[mid];
 }
 
@@ -24,7 +23,7 @@ Line get_median_line(const std::vector<Line>& lines)
     // get list of slopes and biases
     std::vector<float> slopes, biases;
     std::transform(lines.begin(), lines.end(), std::back_inserter(slopes),
-            [](const auto& line){ return line.slope(); });
+                   [](const auto& line){ return line.slope(); });
     std::transform(lines.begin(), lines.end(), std::back_inserter(biases),
                    [](const auto& line){ return line.bias(); });
 
