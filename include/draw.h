@@ -4,7 +4,7 @@
 #include "line.h"
 #include "roi.h"
 
-/// Adjust two points of the line so that they two are visible in the display window
+/// Adjust two points of the line so that they are visible in the display window
 void _adjust_line_visible(Line& line, int img_h, int img_w)
 {
     const auto slope = line.slope() + 0.00001;  // prevents division by 0

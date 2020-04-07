@@ -35,7 +35,8 @@ std::vector<cv::Mat> read_images(const std::string& directory)
 }
 
 /// Read all frames of a video file and save in a list of images.
-/// Assumption: the video is small-sized. Otherwise, a frame generator should be implemented instead.
+/// Assumption: the video is small-sized. Otherwise, a frame generator should be
+/// implemented instead.
 std::vector<cv::Mat> read_video_frames(const std::string& path)
 {
     cv::VideoCapture capture(path);

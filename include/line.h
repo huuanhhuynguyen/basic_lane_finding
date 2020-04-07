@@ -12,7 +12,9 @@ struct Line {
         return static_cast<float>(y2 - y1) / (static_cast<float>(x2 - x1) + _EPS);
     }
 
-    constexpr float bias()  const noexcept { return static_cast<float>(y1) - slope()*static_cast<float>(x1); }
+    constexpr float bias()  const noexcept {
+        return static_cast<float>(y1) - slope()*static_cast<float>(x1);
+    }
 
     explicit constexpr Line(int _x1, int _y1, int _x2, int _y2) :
             x1{_x1}, y1{_y1}, x2{_x2}, y2{_y2}
@@ -44,7 +46,7 @@ Line from_hough_line(const cv::Vec2f& line)
     return Line(x1, y1, x2, y2);
 }
 
-/// return a list of cartesian lines from hough lines. The latter come from cv::HoughLines.
+/// returns a list of cartesian lines from hough lines. The latter come from cv::HoughLines.
 std::vector<Line> cartesian_lines_from_hough_lines(const std::vector<cv::Vec2f>& lines)
 {
     if (lines.empty())
