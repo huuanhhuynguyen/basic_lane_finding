@@ -38,10 +38,10 @@ private:
 /// Calculates moving-averaged line (i.e. moving averaged slope and bias).
 /// Example:
 ///    LineMovAvg mov_avg{2};  // window size = 2
-///    Line line{0.5, 2};      // slope = 0.5, bias = 2
+///    Line line(0.5, 2);      // slope = 0.5, bias = 2
 ///    mov_avg.update(line);   // returns a line with slope 0.5 and bias 2.0
-///    mov_avg.update(Line{-0.5, 3}); // returns slope 0.0 and bias 2.5
-///    mov_avg.update(Line{2.5, -5}); // returns slope 1.0 and bias -1
+///    mov_avg.update(Line(-0.5, 3)); // returns slope 0.0 and bias 2.5
+///    mov_avg.update(Line(2.5, -5)); // returns slope 1.0 and bias -1
 class LineMovAvg {
 public:
     explicit constexpr LineMovAvg(unsigned int window = 5) :

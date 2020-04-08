@@ -49,8 +49,7 @@ Line from_hough_line(const cv::Vec2f& line)
 /// returns a list of cartesian lines from hough lines. The latter come from cv::HoughLines.
 std::vector<Line> cartesian_lines_from_hough_lines(const std::vector<cv::Vec2f>& lines)
 {
-    if (lines.empty())
-    {
+    if (lines.empty()) {
         return {};
     }
 
