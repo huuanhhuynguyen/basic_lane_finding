@@ -24,6 +24,8 @@ We should first install OpenCV for C++ and Boost. After that,
 
 ## Explanation
 
+The implementation can be seen in `src/main.cpp` with the following steps:
+
 1. Read in image as RGB
 2. Apply Gaussian blur
 3. Apply a region of interest (ROI)
