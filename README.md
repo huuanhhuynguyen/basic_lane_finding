@@ -6,13 +6,13 @@ algorithm similar to this
 
 Demo on straight road [videoclip](https://www.youtube.com/watch?v=mbqWboRy95Q):
 
-<a href="https://www.youtube.com/watch?v=mbqWboRy95Q" target="_blank"><img src="https://img.youtube.com/vi/mbqWboRy95Q/0.jpg" 
-alt="circuit" width="240" height="180" border="10" /></a>
+<a href="https://www.youtube.com/watch?v=mbqWboRy95Q" target="_blank">
+<img src="./data/straight.gif" alt="circuit" width="240" height="180" border="10" /></a>
 
 Demo on cornering road [videoclip](https://www.youtube.com/watch?v=qCyg2w0ElU4):
 
-<a href="https://www.youtube.com/watch?v=qCyg2w0ElU4" target="_blank"><img src="https://img.youtube.com/vi/qCyg2w0ElU4/0.jpg" 
-alt="circuit" width="240" height="180" border="10" /></a>
+<a href="https://www.youtube.com/watch?v=qCyg2w0ElU4" target="_blank">
+<img src="./data/corner.gif" alt="circuit" width="240" height="180" border="10" /></a>
 
 ## Basic Build Instructions
 We should first install OpenCV for C++ and Boost. After that,
