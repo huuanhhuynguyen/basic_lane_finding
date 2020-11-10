@@ -12,8 +12,8 @@ int main()
 {
     // read images/videos from the given path and return an image list
     std::string filepath = "../data/test_videos/corner.mp4";
-    //auto images = read_images(std::string("../data/test_images"));
     auto images = read_video_frames(filepath);
+    //auto images = read_images("../data/test_images");
 
     LineMovAvg right_mov_avg, left_mov_avg;
     // for every image in images
