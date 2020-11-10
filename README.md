@@ -1,5 +1,7 @@
 # Project Basic Lane Finding 
 
+[![Build Status](https://travis-ci.com/huuanhhuynguyen/basic_lane_finding.svg?branch=master)](https://travis-ci.com/huuanhhuynguyen/basic_lane_finding)
+
 This project is just a self-learning experience by implementing in C++14 an 
 algorithm similar to this
  [Udacity project](https://github.com/ndrplz/self-driving-car/blob/master/project_1_lane_finding_basic/).
