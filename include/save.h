@@ -5,7 +5,7 @@
 #include <opencv2/highgui/highgui.hpp>
 
 /// save a video from "images" data, using the "input_video" properties
-void save_video(const std::vector<cv::Mat>& images, const cv::VideoCapture& input_video)
+void save_video(const std::vector<cv::Mat>& images, cv::VideoCapture& input_video)
 {
     const int width = static_cast<int>(input_video.get(cv::CAP_PROP_FRAME_WIDTH));
     const int height = static_cast<int>(input_video.get(cv::CAP_PROP_FRAME_HEIGHT));
