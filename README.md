@@ -14,14 +14,10 @@ Demo on cornering road [videoclip](https://www.youtube.com/watch?v=qCyg2w0ElU4):
 <a href="https://www.youtube.com/watch?v=qCyg2w0ElU4" target="_blank">
 <img src="./data/corner.gif" alt="circuit" width="240" height="180" border="10" /></a>
 
-## Prequesites
+## Prerequesites
 1. gcc/clang, cmake
-2. Install OpenCV 
-```
-chmod +x ./ci/install_opencv.sh
-./ci/install_opencv.sh
-``` 
-3. Install Boost `sudo apt-get install libboost-all-dev`
+2. Install OpenCV `chmod +x ./ci/install_opencv.sh && ./ci/install_opencv.sh` 
+3. Install  Boost `sudo apt-get install libboost-all-dev`
 
 ## Basic Build Instructions
 We should first install OpenCV for C++ and Boost. After that,
