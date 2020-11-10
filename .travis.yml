@@ -1,0 +1,24 @@
+language:
+  - cpp
+
+compiler:
+  - gcc
+
+before_install:
+  - sudo apt-get update
+  - chmod +x ./ci/install_opencv.sh
+
+install:
+
+  - ./ci/install_opencv.sh
+
+  # install boost
+  - sudo apt-get install libboost-all-dev
+
+  # clone googletest to "tests/" folder
+  - sudo apt-get install git
+  - git clone https://github.com/google/googletest tests/googletest/
+
+script:
+  - mkdir build && cd build
+  - cmake .. && make
