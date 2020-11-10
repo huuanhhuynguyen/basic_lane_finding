@@ -14,10 +14,19 @@ Demo on cornering road [videoclip](https://www.youtube.com/watch?v=qCyg2w0ElU4):
 <a href="https://www.youtube.com/watch?v=qCyg2w0ElU4" target="_blank">
 <img src="./data/corner.gif" alt="circuit" width="240" height="180" border="10" /></a>
 
+## Prequesites
+1. gcc/clang, cmake
+2. Install OpenCV 
+```
+chmod +x ./ci/install_opencv.sh
+./ci/install_opencv.sh
+``` 
+3. Install Boost `sudo apt-get install libboost-all-dev`
+
 ## Basic Build Instructions
 We should first install OpenCV for C++ and Boost. After that,
 
-1. Clone this repo.
+1. Clone this repo `git clone https://github.com/huuanhhuynguyen/basic_lane_finding.git`
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./basic_lane_finding_cpp`
