@@ -17,3 +17,6 @@ target_link_libraries(${THIS} ${OpenCV_LIBS})
 # Boost needs to be installed
 find_package(Boost COMPONENTS system filesystem REQUIRED)
 target_link_libraries(${THIS} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
+
+# Unit tests
+add_subdirectory(tests)
