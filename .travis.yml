@@ -21,7 +21,7 @@ install:
 
 script:
   - mkdir build && cd build
-  - cmake .. && make
+  - cmake .. -DBUILD_TEST=ON && make
 
   # run unit tests
   - ./tests/gtest_run
