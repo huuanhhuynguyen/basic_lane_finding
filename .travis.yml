@@ -9,7 +9,7 @@ before_install:
   - chmod +x ./ci/install_opencv.sh
 
 install:
-
+  # install opencv
   - ./ci/install_opencv.sh
 
   # install boost
@@ -21,7 +21,10 @@ install:
 
 script:
   - mkdir build && cd build
-  - cmake .. && make
+  - cmake .. -DBUILD_TEST=ON && make
+
+  # run unit tests
+  - ./tests/gtest_run
 
 notifications:
   email: false

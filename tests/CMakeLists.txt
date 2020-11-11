@@ -1,6 +1,8 @@
 set(THIS gtest_run)
 project(unit_tests)
 
+add_definitions( -DPROJECT_ROOT="${CMAKE_SOURCE_DIR}")
+
 # include googletest from https://github.com/google/googletest
 add_subdirectory(googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
