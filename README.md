@@ -27,7 +27,7 @@ Demo on cornering road [videoclip](https://www.youtube.com/watch?v=qCyg2w0ElU4):
 3. Compile: `cmake .. && make`
 4. Run it: `./basic_lane_finding_cpp`
 
-## Run unit tests
+## Run Unit Tests
 1. Clone google test `git clone https://github.com/google/googletest tests/googletest/ tests/googletest/`
 2. In the build/ directory, build the test `cmake .. -DBUILD_TEST=ON && make`
 3. Run all tests `./tests/gtest_run`
