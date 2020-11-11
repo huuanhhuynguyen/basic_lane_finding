@@ -19,4 +19,8 @@ find_package(Boost COMPONENTS system filesystem REQUIRED)
 target_link_libraries(${THIS} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
 
 # Unit tests
-add_subdirectory(tests)
+option(BUILD_TEST "Build the unit tests" OFF)
+if (BUILD_TEST)
+    message("Start building unit tests.")
+    add_subdirectory(tests)
+endif()
